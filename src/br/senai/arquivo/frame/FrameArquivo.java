@@ -24,7 +24,7 @@ public class FrameArquivo extends JFrame {
 
 	public FrameArquivo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 534, 322);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.RED);
 		contentPane.setForeground(Color.WHITE);
@@ -38,7 +38,7 @@ public class FrameArquivo extends JFrame {
 		contentPane.add(lblManipular);
 		
 		JLabel lblTexto = new JLabel("Texto");
-		lblTexto.setBounds(10, 50, 46, 14);
+		lblTexto.setBounds(10, 54, 46, 14);
 		contentPane.add(lblTexto);
 		
 		JTextPane txtPaneTexto = new JTextPane();
@@ -57,6 +57,14 @@ public class FrameArquivo extends JFrame {
 		btnSair.setBounds(203, 207, 89, 23);
 		contentPane.add(btnSair);
 		
+		JTextPane txtPaneConteudo = new JTextPane();
+		txtPaneConteudo.setBounds(309, 75, 173, 155);
+		contentPane.add(txtPaneConteudo);
+		
+		JLabel lblTextos = new JLabel("Textos Gravados");
+		lblTextos.setBounds(309, 54, 89, 14);
+		contentPane.add(lblTextos);
+		
 		Arquivo objetoArquivo = new Arquivo();
 		String caminho = "C:\\Users\\21276321\\Desktop\\teste\\aula.txt";
 		
@@ -69,6 +77,8 @@ public class FrameArquivo extends JFrame {
 				String texto =  objetoArquivo.ler(caminho) + txtPaneTexto.getText();
 				
 				objetoArquivo.escrever(caminho, texto);
+				
+			   txtPaneConteudo.setText(objetoArquivo.ler(caminho));
 			}
 		});
 		
